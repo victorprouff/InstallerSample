@@ -38,7 +38,7 @@ jobs:
               "./installersample.tar.gz" \
               --repo="https://github.com/victorprouff/InstallerSample" \
               --title="${tag#v}" \
-              --generate-notes
+              --generate-notes \
               --notes="SHA256=${SHA256}"
       # - uses: pipe-cd/actions-gh-release@v2.6.0
       #   with:
