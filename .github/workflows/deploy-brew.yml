@@ -2,8 +2,8 @@ name: dotnet publish
 
 on:
   push:
-    branches:
-      - main
+    tags:
+      - "v*"
 
 jobs:
   build:
@@ -25,8 +25,19 @@ jobs:
         run: dotnet publish --runtime osx-arm64 -o ./dist -f net8.0 --self-contained
       - name: Create Archive
         run: tar -cvf installersample.tar.gz ./dist
-      - uses: pipe-cd/actions-gh-release@v2.6.0
-        with:
-          # tags: v1.0.4
-          release_file: 'installersample.tar.gz'
-          token: ${{ secrets.TOKEN }}
+      - name: Release pushed tag
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          tag: ${{ github.ref_name }}
+          fileName: 'installersample.tar.gz'
+        run: |
+          gh release create "$tag" \
+              "./installersample.tar.gz"
+              --repo="$GITHUB_REPOSITORY" \
+              --title="${tag#v}" \
+              --generate-notes
+      # - uses: pipe-cd/actions-gh-release@v2.6.0
+      #   with:
+      #     # tags: v1.0.4
+      #     release_file: 'installersample.tar.gz'
+      #     token: ${{ secrets.TOKEN }}
