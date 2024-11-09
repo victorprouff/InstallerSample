@@ -8,6 +8,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: PROD
     strategy:
       matrix:
         dotnet-version: [ '8.0.x' ]
@@ -26,6 +27,6 @@ jobs:
         run: tar -cvf installersample.tar.gz ./dist
       - uses: pipe-cd/actions-gh-release@v2.6.0
         with:
-          tags: v1.0.4
+          # tags: v1.0.4
           release_file: 'installersample.tar.gz'
           token: ${{ secrets.TOKEN }}
