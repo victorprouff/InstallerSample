@@ -69,4 +69,5 @@ gh release create v1.0.2 ./installersample-1.0.2.tar.gz --title "1.0.2" --genera
 ## Sources
 
 - https://howinteresting.co.uk/blog/2024-05-15-distributing-tools-with-brew-and-github-actions-part-i/
+- https://dev.to/ayoub3bidi/quick-tutorial-how-to-add-a-release-github-workflow-56ib
 
