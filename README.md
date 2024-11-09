@@ -46,7 +46,9 @@ shasum -a 256 InstallerSample-1.0.0.tar.gz | awk '{printf $1}'
 
 a0f2c3b14c681dbbc831eeccf99812843167162bae1984bc988fd1ea8e323bd5%
 
-gh release create v1.0.0 ./dist/joke-0.0.1.tar.gz --title "0.0.1" --generate-notes
+gh release create v1.0.0 ./InstallerSample-1.0.0.tar.gz --title "0.0.1" --generate-notes
+
+brew tap victorprouff/InstallerSample
 
 ## Sources
 
