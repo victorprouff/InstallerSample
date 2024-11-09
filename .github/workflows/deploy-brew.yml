@@ -28,4 +28,4 @@ jobs:
         with:
           tags: v1.0.4
           release_file: 'installersample.tar.gz'
-          token: ${{ secrets.TOKEN }}
+          token: ${{ vars.TOKEN }}
