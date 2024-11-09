@@ -50,6 +50,19 @@ gh release create v1.0.0 ./InstallerSample-1.0.0.tar.gz --title "0.0.1" --genera
 
 brew tap victorprouff/InstallerSample
 
+
+# Process
+Update codes
+Upgrade version everywhere
+
+publish :
+dotnet publish --runtime osx-arm64 -o ./dist -f net8.0 --self-contained
+create archive
+tar -cvf InstallerSample-1.0.1.tar.gz ./dist
+create shasum
+shasum -a 256 InstallerSample-1.0.1.tar.gz | awk '{printf $1}'
+récupérer clé et upgrade InstallerSample.rb
+
 ## Sources
 
 - https://howinteresting.co.uk/blog/2024-05-15-distributing-tools-with-brew-and-github-actions-part-i/
