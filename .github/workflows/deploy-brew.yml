@@ -31,9 +31,9 @@ jobs:
           tag: ${{ github.ref_name }}
           fileName: 'installersample.tar.gz'
         run: |
-          gh release create "$tag" \
-              "./installersample.tar.gz"
-              --repo="$GITHUB_REPOSITORY" \
+          gh release create "${tag}" \
+              "./installersample.tar.gz" \
+              --repo="https://github.com/victorprouff/InstallerSample" \
               --title="${tag#v}" \
               --generate-notes
       # - uses: pipe-cd/actions-gh-release@v2.6.0
