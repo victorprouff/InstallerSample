@@ -62,6 +62,7 @@ tar -cvf InstallerSample-1.0.1.tar.gz ./dist
 create shasum
 shasum -a 256 InstallerSample-1.0.1.tar.gz | awk '{printf $1}'
 récupérer clé et upgrade InstallerSample.rb
+Push new version repos
 
 ## Sources
 
