@@ -58,7 +58,8 @@ Upgrade version everywhere
 publish :
 dotnet publish --runtime osx-arm64 -o ./dist -f net8.0 --self-contained
 create archive
-tar -cvf installersample-1.0.2.tar.gz ./dist
+cd ./dist
+tar -cvf installersample.tar.gz ./
 create shasum
 shasum -a 256 installersample-1.0.2.tar.gz | awk '{printf $1}'
 récupérer clé et upgrade InstallerSample.rb
