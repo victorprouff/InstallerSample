@@ -20,7 +20,7 @@ jobs:
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
       - name: Run Publish
-        run: dotnet publish --runtime osx-arm64 -o ./release -f net8.0 --self-contained
+        run: dotnet publish --runtime osx-arm64 -o ./release -f net8.0 # --self-contained
       - name: Create Archive
         run: |
             cd ./release
